@@ -1,5 +1,5 @@
-import Vue from 'vue'
-import App from './App'
+import Vue from "vue";
+import App from "./App";
 import store from "./store";
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
@@ -17,12 +17,12 @@ import "./assets/less/theme.less";
 
 Vue.use(ElementUI);
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
-App.mpType = 'app'
+App.mpType = "app";
 
 const app = new Vue({
     store,
-    ...App
-})
-app.$mount()
+    ...App,
+});
+app.$mount();
