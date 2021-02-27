@@ -84,7 +84,9 @@ const mutations = {
         const editorDom = document.getElementById("editor");
 
         if (!editorDom.value) {
-            editorDom.value = localStorage.getItem("__editor_content") || formatDoc(DEFAULT_CONTENT);
+            editorDom.value =
+                localStorage.getItem("__editor_content") ||
+                formatDoc(DEFAULT_CONTENT);
         }
         state.editor = CodeMirror.fromTextArea(editorDom, {
             mode: "text/x-markdown",
@@ -100,34 +102,32 @@ const mutations = {
                     editor.setValue(doc);
                 },
                 "Ctrl-S": function save(editor) {},
-            }
+            },
         });
     },
     initCssEditorEntity(state) {
         const cssEditorDom = document.getElementById("cssEditor");
 
         if (!cssEditorDom.value) {
-            cssEditorDom.value = localStorage.getItem("__css_content") || DEFAULT_CSS_CONTENT;
+            cssEditorDom.value =
+                localStorage.getItem("__css_content") || DEFAULT_CSS_CONTENT;
         }
-        state.cssEditor = CodeMirror.fromTextArea(
-            cssEditorDom,
-            {
-                mode: "css",
-                theme: "style-mirror",
-                lineNumbers: false,
-                lineWrapping: true,
-                matchBrackets: true,
-                autofocus: true,
-                extraKeys: {
-                    "Ctrl-F": function autoFormat(editor) {
-                        const doc = formatCss(editor.getValue(0));
-                        localStorage.setItem("__css_content", doc);
-                        editor.setValue(doc);
-                    },
-                    "Ctrl-S": function save(editor) {},
+        state.cssEditor = CodeMirror.fromTextArea(cssEditorDom, {
+            mode: "css",
+            theme: "style-mirror",
+            lineNumbers: false,
+            lineWrapping: true,
+            matchBrackets: true,
+            autofocus: true,
+            extraKeys: {
+                "Ctrl-F": function autoFormat(editor) {
+                    const doc = formatCss(editor.getValue(0));
+                    localStorage.setItem("__css_content", doc);
+                    editor.setValue(doc);
                 },
-            }
-        );
+                "Ctrl-S": function save(editor) {},
+            },
+        });
     },
     editorRefresh(state) {
         let output = marked(state.editor.getValue(0), {

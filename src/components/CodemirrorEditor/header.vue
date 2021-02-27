@@ -128,7 +128,6 @@
             </el-tooltip>
         </div>
         <div class="right-side">
-
             <el-tooltip
                 class="item"
                 :effect="effect"
@@ -408,12 +407,12 @@ export default {
 }
  */
 .select-item-left {
-  float: left;
+    float: left;
 }
 
 .select-item-right {
-  float: right;
-  color: #8492a6;
-  font-size: 13px;
+    float: right;
+    color: #8492a6;
+    font-size: 13px;
 }
 </style>
