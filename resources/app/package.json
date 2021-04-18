@@ -1,0 +1,12 @@
+{
+  "name": "electron-md",
+  "version": "1.0.0",
+  "description": "md-electron",
+  "main": "main.js",
+  "scripts": {
+    "build": "electron-packager . app --win --out demoapp --arch=x64 --electron-version 1.4.14 --overwrite --ignore=node_modules",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jimqing@yeah.net",
+  "license": "ISC"
+}
